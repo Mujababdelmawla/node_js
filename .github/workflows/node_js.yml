@@ -1,0 +1,22 @@
+name: node js ci 
+
+on: 
+    push:
+        branches: [ main ]
+ 
+
+jobs:
+    bulid-test:
+        runs-on: ubuntu-latest
+
+
+        steps:
+        - name: checkout code 
+          uses: actions/checkout@v3
+
+        - name: setting up node js 
+          uses: actions/setup-node@v3
+          with:
+            node-version: 18
+        - run: npm install
+        - run: npm test
